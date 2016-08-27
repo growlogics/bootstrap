@@ -1,0 +1,40 @@
+.footer-default {
+  background-color: darken(@navbar-default-bg, 6.5%);
+  color: @navbar-default-color;
+  padding-bottom: @grid-gutter-width;
+  
+  .footer-brand {
+    padding: @navbar-padding-vertical @navbar-padding-horizontal;
+    
+    > img {
+      display: block;
+      height: floor((@brand-logo-height * 0.66));
+      opacity: 0.75;
+    }
+  
+  }
+  .footer-nav {
+    text-align: right;
+    padding: @grid-gutter-width 0;
+    
+    p {
+      margin: 0;
+      font-size:    @font-size-small;
+      line-height:  @line-height-computed;
+      color:        darken(@navbar-default-link-hover-color, 6.5%);
+    }
+    a {
+      color: darken(@navbar-default-link-color, 6.5%);
+
+      &:hover,
+      &:focus {
+        color: darken(@navbar-default-link-hover-color, 6.5%);
+      }
+    }
+    span+span:before {
+      padding: 0 5px;
+      color: #ccc;
+      content: "/\00a0";
+    }
+  }
+}
