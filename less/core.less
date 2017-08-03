@@ -18,3 +18,9 @@
 footer.footer {
   color: @color-footer-text;
 }
+
+@media (min-width: @grid-float-breakpoint) {
+  nav.navbar + .container {
+    margin-top: 48px;
+  }
+}
