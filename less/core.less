@@ -18,7 +18,23 @@
 footer.footer {
   color: @color-footer-text;
 }
-
+.pt-home .types-short a span.fa.fa-visible {
+  color: @color-footer;
+}
+.pt-home .home-lead-search button {
+  background-color: @color-nav;
+  color: @color-nav-links;
+}
+.pt-home .home-lead-search button:hover {
+  background-color: @color-footer;
+}
+.pt-home .home-lead-search.alt button {
+  background-color: @color-nav-links;
+  color: @color-nav;
+}
+.pt-home .home-lead-search.alt button:hover {
+  color: @color-footer;
+}
 @media (min-width: @grid-float-breakpoint) {
   nav.navbar + .container {
     margin-top: @header-height;
