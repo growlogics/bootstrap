@@ -18,8 +18,14 @@
 footer.footer {
   color: @color-footer-text;
 }
+.pt-home .home-states-wrap a:hover {
+  color: @color-nav;
+}
 .pt-home .types-short a span.fa.fa-visible {
   color: @color-footer;
+}
+.pt-home .types-short a:hover span.fa.fa-visible {
+  color: @color-nav;
 }
 .pt-home .home-lead-search button {
   background-color: @color-nav;
@@ -30,10 +36,10 @@ footer.footer {
 }
 .pt-home .home-lead-search.alt button {
   background-color: @color-nav-links;
-  color: @color-nav;
+  color: @color-footer;
 }
 .pt-home .home-lead-search.alt button:hover {
-  color: @color-footer;
+  color: @color-nav;
 }
 @media (min-width: @grid-float-breakpoint) {
   nav.navbar + .container {
