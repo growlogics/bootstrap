@@ -22,8 +22,8 @@
 .list-group-item {
   position: relative;
   display: block;
-  padding: 0.6em 0.5em;
- 
+  padding: @default-padding;
+  border-radius: @list-group-border-radius;
   .badge {
     background-color: @gray-lighter;
     font-weight: normal;
@@ -194,7 +194,7 @@ button.list-group-item {
 .list-group-heading {
   color: @gray-dark;
   background-color: @breadcrumb-bg;
-  padding: 0.5em;
+  padding: @default-padding;
   border-radius: @list-group-border-radius;
 }
 
