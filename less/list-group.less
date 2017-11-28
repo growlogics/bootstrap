@@ -10,7 +10,6 @@
 .list-group {
   // No need to set list-style: none; since .list-group-item is block level
   font-size: @font-size-small;
-  margin-bottom: @margin-base-vertical;
   padding-left: 0; // reset padding because ul and ol
   &:extend(.clearfix all);
 }
@@ -23,21 +22,8 @@
 .list-group-item {
   position: relative;
   display: block;
-  padding: 0.75em 0.5em;
-  // Place the border on the list items and negative margin up for better styling
-  margin-bottom: -1px;
-  background-color: @list-group-bg;
-  border: 1px solid @list-group-border;
-
-  // Round the first and last items
-  &:first-child {
-    .border-top-radius(@list-group-border-radius);
-  }
-  &:last-child {
-    margin-bottom: 0;
-    .border-bottom-radius(@list-group-border-radius);
-  }
-  
+  padding: 0.6em 0.5em;
+ 
   .badge {
     background-color: @gray-lighter;
     font-weight: normal;
@@ -46,20 +32,8 @@
 }
 
 .list-group-items {
-  border-left: 1px solid #ddd;
   float: left;
   width: 100%;
-  .list-group-item {
-    border-left: 0;
-    
-    &:first-child {
-      border-radius: 0;
-    }
-    
-    &:last-child {
-      border-radius: 0;
-    }
-  }
 }
 
 @media (min-width: @screen-lg-min) {
@@ -218,16 +192,9 @@ button.list-group-item {
 // Extra classes for creating well-formatted content within `.list-group-item`s.
 
 .list-group-heading {
-  display: block;
-  margin: 0 0 -1px 0;
-  background-color: @gray-lighter;
-  font-weight: bold;
-  font-size: @font-size-large;
-  line-height: @line-height-computed;
   color: @gray-dark;
-  padding: 0.7em 0.5em;
-  border: 1px solid @list-group-border;
-  .border-top-radius(@list-group-border-radius);
+  padding: 0.6em 0.5em;
+  border-radius: @list-group-border-radius;
 }
 
 .list-group-heading + .list-group-item {
