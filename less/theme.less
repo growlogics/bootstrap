@@ -52,6 +52,7 @@
   border-color: darken(@btn-color, 14%);
 
   &:hover,
+  &:active,
   &:focus  {
     background-color: darken(@btn-color, 12%);
     background-position: 0 -15px;
@@ -117,6 +118,7 @@
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:active,
 .dropdown-menu > .active > a:focus {
   #gradient > .vertical(@start-color: @dropdown-link-active-bg; @end-color: darken(@dropdown-link-active-bg, 5%));
   background-color: darken(@dropdown-link-active-bg, 5%);
@@ -175,6 +177,7 @@
   .navbar .navbar-nav .open .dropdown-menu > .active > a {
     &,
     &:hover,
+    &:active,
     &:focus {
       color: #fff;
       #gradient > .vertical(@start-color: @dropdown-link-active-bg; @end-color: darken(@dropdown-link-active-bg, 5%));

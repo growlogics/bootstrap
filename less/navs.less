@@ -22,6 +22,7 @@
       display: block;
       padding: @nav-link-padding;
       &:hover,
+      &:active,
       &:focus {
         text-decoration: none;
         background-color: @nav-link-hover-bg;
@@ -46,6 +47,7 @@
   .open > a {
     &,
     &:hover,
+    &:active,
     &:focus {
       background-color: @nav-link-hover-bg;
       border-color: @link-color;
@@ -131,6 +133,7 @@
     &.active > a {
       &,
       &:hover,
+      &:active,
       &:focus {
         color: @nav-pills-active-link-hover-color;
         background-color: @nav-pills-active-link-hover-bg;
