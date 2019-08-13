@@ -44,14 +44,20 @@ textarea {
 
 // Links
 
-a {
+a:not(.no-link-color) {
   color: @link-color;
+  &:hover,
+  &:active,
+  &:focus {
+    color: @link-hover-color;
+  }
+}
+a {
   text-decoration: none;
 
   &:hover,
   &:active,
   &:focus {
-    color: @link-hover-color;
     text-decoration: @link-hover-decoration;
   }
 
