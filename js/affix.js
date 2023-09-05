@@ -91,7 +91,7 @@
     if (this.affixed != affix) {
       if (this.unpin != null) {
         this.$element.css('top', '');
-        this.$element.css('position', '');
+        this.$element.css('position', ''); // modification, lib has a bug where it leaves position: relative and affix jumps to top
       }
 
       var affixType = 'affix' + (affix ? '-' + affix : '')
