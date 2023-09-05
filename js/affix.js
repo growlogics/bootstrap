@@ -79,7 +79,7 @@
     var height       = this.$element.height()
     var offset       = this.options.offset
     var offsetTop    = offset.top
-    var offsetBottom = 160; // offset.bottom
+    var offsetBottom = offset.bottom
     var scrollHeight = Math.max($(document).height(), $(document.body).height())
 
     if (typeof offset != 'object')         offsetBottom = offsetTop = offset
@@ -89,7 +89,10 @@
     var affix = this.getState(scrollHeight, height, offsetTop, offsetBottom)
 
     if (this.affixed != affix) {
-      if (this.unpin != null) this.$element.css('top', '')
+      if (this.unpin != null) {
+        this.$element.css('top', '');
+        this.$element.css('position', '');
+      }
 
       var affixType = 'affix' + (affix ? '-' + affix : '')
       var e         = $.Event(affixType + '.bs.affix')
