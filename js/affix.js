@@ -79,7 +79,7 @@
     var height       = this.$element.height()
     var offset       = this.options.offset
     var offsetTop    = offset.top
-    var offsetBottom = offset.bottom
+    var offsetBottom = 160; // offset.bottom
     var scrollHeight = Math.max($(document).height(), $(document.body).height())
 
     if (typeof offset != 'object')         offsetBottom = offsetTop = offset
