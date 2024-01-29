@@ -32,7 +32,7 @@
 
   Collapse.VERSION  = '3.4.1'
 
-  Collapse.TRANSITION_DURATION = 350
+  Collapse.TRANSITION_DURATION = 10
 
   Collapse.DEFAULTS = {
     toggle: true
