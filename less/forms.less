@@ -9,28 +9,6 @@
 //
 // Restyle and baseline non-control form elements.
 
-fieldset {
-  // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
-  // so we reset that to ensure it behaves more like a standard block element.
-  // See https://github.com/twbs/bootstrap/issues/12359.
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-legend {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin-bottom: @line-height-computed;
-  font-size: (@font-size-base * 1.5);
-  line-height: inherit;
-  color: @legend-color;
-  border: 0;
-  border-bottom: 1px solid @legend-border-color;
-}
-
 label {
   display: inline-block;
   max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
@@ -44,20 +22,6 @@ label {
 // While most of our form styles require extra classes, some basic normalization
 // is required to ensure optimum display with or without those classes to better
 // address browser inconsistencies.
-
-input[type="search"] {
-  // Override content-box in Normalize (* isn't specific enough)
-  .box-sizing(border-box);
-
-  // Search inputs in iOS
-  //
-  // This overrides the extra rounded corners on search inputs in iOS so that our
-  // `.form-control` class can properly style them. Note that this cannot simply
-  // be added to `.form-control` as it's not specific enough. For details, see
-  // https://github.com/twbs/bootstrap/issues/11586.
-  -webkit-appearance: none;
-  appearance: none;
-}
 
 // Position radios and checkboxes better
 input[type="radio"],
@@ -100,14 +64,6 @@ input[type="checkbox"]:focus {
   .tab-focus();
 }
 
-// Adjust output element
-output {
-  display: block;
-  padding-top: (@padding-base-vertical + 1);
-  font-size: @font-size-base;
-  line-height: @line-height-base;
-  color: @input-color;
-}
 
 
 // Common form controls
@@ -265,50 +221,6 @@ output {
   margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
 }
 
-// Radios and checkboxes on same line
-.radio-inline,
-.checkbox-inline {
-  position: relative;
-  display: inline-block;
-  padding-left: 20px;
-  margin-bottom: 0;
-  font-weight: 400;
-  vertical-align: middle;
-  cursor: pointer;
-
-  // These are used directly on <label>s
-  &.disabled,
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
-  }
-}
-.radio-inline + .radio-inline,
-.checkbox-inline + .checkbox-inline {
-  margin-top: 0;
-  margin-left: 10px; // space out consecutive inline controls
-}
-
-
-// Static form control text
-//
-// Apply class to a `p` element to make any string of text align with labels in
-// a horizontal form layout.
-
-.form-control-static {
-  min-height: (@line-height-computed + @font-size-base);
-  // Size it appropriately next to real form controls
-  padding-top: (@padding-base-vertical + 1);
-  padding-bottom: (@padding-base-vertical + 1);
-  // Remove default margin from `p`
-  margin-bottom: 0;
-
-  &.input-lg,
-  &.input-sm {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
 
 // Form control sizing
 //
@@ -321,136 +233,6 @@ output {
 .input-sm {
   .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
 }
-.form-group-sm {
-  .form-control {
-    height: @input-height-small;
-    padding: @padding-small-vertical @padding-small-horizontal;
-    font-size: @font-size-small;
-    line-height: @line-height-small;
-    border-radius: @input-border-radius-small;
-  }
-  select.form-control {
-    height: @input-height-small;
-    line-height: @input-height-small;
-  }
-  textarea.form-control,
-  select[multiple].form-control {
-    height: auto;
-  }
-  .form-control-static {
-    height: @input-height-small;
-    min-height: (@line-height-computed + @font-size-small);
-    padding: (@padding-small-vertical + 1) @padding-small-horizontal;
-    font-size: @font-size-small;
-    line-height: @line-height-small;
-  }
-}
-
-.input-lg {
-  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
-}
-.form-group-lg {
-  .form-control {
-    height: @input-height-large;
-    padding: @padding-large-vertical @padding-large-horizontal;
-    font-size: @font-size-large;
-    line-height: @line-height-large;
-    border-radius: @input-border-radius-large;
-  }
-  select.form-control {
-    height: @input-height-large;
-    line-height: @input-height-large;
-  }
-  textarea.form-control,
-  select[multiple].form-control {
-    height: auto;
-  }
-  .form-control-static {
-    height: @input-height-large;
-    min-height: (@line-height-computed + @font-size-large);
-    padding: (@padding-large-vertical + 1) @padding-large-horizontal;
-    font-size: @font-size-large;
-    line-height: @line-height-large;
-  }
-}
-
-
-// Form control feedback states
-//
-// Apply contextual and semantic states to individual form controls.
-
-.has-feedback {
-  // Enable absolute positioning
-  position: relative;
-
-  // Ensure icons don't overlap text
-  .form-control {
-    padding-right: (@input-height-base * 1.25);
-  }
-}
-// Feedback icon (requires .glyphicon classes)
-.form-control-feedback {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2; // Ensure icon is above input groups
-  display: block;
-  width: @input-height-base;
-  height: @input-height-base;
-  line-height: @input-height-base;
-  text-align: center;
-  pointer-events: none;
-}
-.input-lg + .form-control-feedback,
-.input-group-lg + .form-control-feedback,
-.form-group-lg .form-control + .form-control-feedback {
-  width: @input-height-large;
-  height: @input-height-large;
-  line-height: @input-height-large;
-}
-.input-sm + .form-control-feedback,
-.input-group-sm + .form-control-feedback,
-.form-group-sm .form-control + .form-control-feedback {
-  width: @input-height-small;
-  height: @input-height-small;
-  line-height: @input-height-small;
-}
-
-// Feedback states
-.has-success {
-  .form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
-}
-.has-warning {
-  .form-control-validation(@state-warning-text; @state-warning-text; @state-warning-bg);
-}
-.has-error {
-  .form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
-}
-
-// Reposition feedback icon if input has visible label above
-.has-feedback label {
-
-  & ~ .form-control-feedback {
-    top: (@line-height-computed + 5); // Height of the `label` and its margin
-  }
-  &.sr-only ~ .form-control-feedback {
-    top: 0;
-  }
-}
-
-
-// Help text
-//
-// Apply to any element you wish to create light text for placement immediately
-// below a form control. Use for general help, formatting, or instructional text.
-
-.help-block {
-  display: block; // account for any element using help-block
-  margin-top: 5px;
-  margin-bottom: 10px;
-  color: lighten(@text-color, 25%); // lighten the text some for contrast
-}
-
 
 // Inline forms
 //
