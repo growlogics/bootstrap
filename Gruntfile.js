@@ -110,7 +110,6 @@ module.exports = function (grunt) {
           'js/alert.js',
           'js/button.js',
           'js/collapse.js',
-          'js/scrollspy.js',
           'js/modal.js',
           'js/affix.js'
         ],
